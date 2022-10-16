@@ -43,9 +43,18 @@
         <artifactId>jacoco-maven-plugin</artifactId>
         <version>${jacoco.maven.plugin.version}</version>
         <executions>
+          <!--first execution : for preparing JaCoCo runtime agent-->
           <execution>
+            <id>prepare-agent</id>
             <goals>
               <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <!--second execution : for creating code coverage reports-->
+          <execution>
+            <id>report</id>
+            <phase>test</phase>
+            <goals>
               <goal>report</goal>
             </goals>
           </execution>
@@ -69,10 +78,10 @@
             <outputFormat>HTML</outputFormat>
           </outputFormats>
           <targetClasses>
-            <param>com.rdelgatte.pitest.*</param>
+            <param>pt.mesw.pitest.*</param>
           </targetClasses>
           <targetTests>
-            <param>com.rdelgatte.pitest.*</param>
+            <param>pt.mesw.pitest.*</param>
           </targetTests>
           <exportLineCoverage>true</exportLineCoverage>
           <!--We want each report to override the former one-->

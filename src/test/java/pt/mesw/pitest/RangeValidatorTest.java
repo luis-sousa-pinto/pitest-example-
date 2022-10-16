@@ -1,4 +1,4 @@
-package com.rdelgatte.pitest;
+package pt.mesw.pitest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
